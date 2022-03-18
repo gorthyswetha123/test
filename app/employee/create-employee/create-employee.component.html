@@ -1,0 +1,382 @@
+
+<div class="container">
+  <br />
+  <div class="category-category">
+    <h3>Add Employee Details</h3>
+  </div>
+  <hr />
+  <form
+    [formGroup]="employeeForm"
+    autocomplete="off"
+    name=""
+    novalidate=""
+    class="ng-untouched ng-pristine ng-invalid"
+  >
+  <div class="col-md-12 mx-auto">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="form-group">
+          <label class="form-label" for="name">Name</label>
+          <input
+            autocomplete="off"
+            class="form-control ng-untouched ng-pristine ng-invalid"
+            formControlName="Name"
+            id="name"
+            placeholder=" "
+            type="text"
+          />
+        </div>
+      </div>
+        <div class="col-md-3">
+        <div class="form-group">
+          <label class="form-label" for="EmployeeId">Employee ID</label>
+          <input
+            autocomplete="off"
+            class="form-control ng-untouched ng-pristine ng-invalid"
+            formControlName="EmployeeId"
+            id="EmployeeId"
+            placeholder=" "
+            type="text"
+          />
+        </div>
+        </div>
+        <div class="col-md-3">
+        <div class="form-group">
+          <label class="form-label" for="Date">Date: </label>
+          <input
+            autocomplete="off"
+            class="form-control ng-untouched ng-pristine ng-invalid"
+            type="date"
+            formControlName="Date"
+            name="startDate"
+          />
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+            <button
+              type="button"
+              class="btn-cmn btn-green mt-1"
+              data-toggle="modal"
+              data-target="#myModal1"
+            >
+               Add Bonbloc
+            </button>
+        </div>
+        <div class="form-group">
+          <button
+            type="button"
+            class="btn-cmn btn-green mt-1"
+            data-toggle="modal"
+            data-target="#myModal2"
+          >
+             Add Mclane
+          </button>
+      </div>
+      </div>
+   <!-- Modal 1 Start -->
+ <div class="modal fade" id="myModal1" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button
+          type="button"
+          #closebutton
+          class="close"
+          data-dismiss="modal"
+        >
+          &times;
+        </button>
+      </div>
+      <h4 class="modal-title" style="display:flex; justify-content: center;font-size: 20px;">Bonbloc Project Details</h4>
+      <div class="modal-body">
+        <p>Content here</p>
+        <form
+        [formGroup]="BonblocForm"
+        autocomplete="off"
+        name=""
+        novalidate=""
+        class="ng-untouched ng-pristine ng-invalid"
+      >
+        <div class="form-group">
+          <div
+            formArrayName="BonblocType"
+            *ngFor="
+              let item of getBonblocControls();
+              let i = index
+            "
+          >
+            <div [formGroupName]="i">
+              <div class="form-group">
+                <input
+                  id="Comment"
+                  type="text"
+                  class="form-control Array-label"
+                  formControlName="prjctCode"
+                  placeholder="Code"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  id="prjctName"
+                  type="text"
+                  class="form-control Array-label"
+                  formControlName="prjctName"
+                  placeholder="Name"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  id="prjctTask"
+                  type="text"
+                  class="form-control Array-label"
+                  formControlName="prjctTask"
+                  placeholder="Task"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  id="prjctHrs"
+                  type="text"
+                  class="form-control Array-label"
+                  formControlName="prjctHrs"
+                  placeholder="Time"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  id="prjctDesc"
+                  type="text"
+                  class="form-control Array-label"
+                  formControlName="prjctDesc"
+                  placeholder="description"
+                />
+              </div>
+              <div class="col-md-8">
+                <div class="row">
+                  <div class="col-md-3">
+                <button class="btn btn-success btn-sm" (click)="addBonblocItem()" >
+                  Add +Bonbloc
+                </button>
+                  </div>
+                  <div class="col-md-3">
+                   
+                    <button type="button" *ngIf="i > 0"  class="btn btn-danger btn-sm" (click)="deleteRow(i)" >
+                      Remove
+                    </button>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-danger"
+          id="closeModal"
+          (click)="onSave()"
+        >
+          Save
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- model 1 End -->
+
+<!-- Modal 2 Start -->
+<div class="modal fade" id="myModal2" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button
+          type="button"
+          #closebutton
+          class="close"
+          data-dismiss="modal"
+        >
+          &times;
+        </button>
+      </div>
+      <h4 class="modal-title" style="display:flex; justify-content: center;font-size: 20px;">Mclane Project Details</h4>
+      <div class="modal-body">
+        <form
+          [formGroup]="MclaneForm"
+          autocomplete="off"
+          name=""
+          novalidate=""
+          class="ng-untouched ng-pristine ng-invalid"
+        >
+        <div class="form-group">
+           <div
+             formArrayName="MclaneType"
+             *ngFor="
+               let item of getMclaneControls();
+               let i = index
+             "
+           >
+             <div [formGroupName]="i">
+               <div class="form-group">
+                 <input
+                   id="Key"
+                   type="text"
+                   class="form-control Array-label"
+                   formControlName="Key"
+                   placeholder="Key"
+                 />
+               </div>
+               <div class="form-group">
+                 <select class="custom-select" formControlName="Skill">
+                   <option value="" disabled>select Skills</option>
+                   <option
+                     *ngFor="let skill of skillsList"
+                     value="{{ skill.Name }}"
+                   >
+                     {{ skill.Name }}
+                   </option>
+                 </select>
+               </div>
+               <div class="form-group">
+                 <label class="form-label" for="Status"></label>
+                 <select class="custom-select" formControlName="Status">
+                   <option value="" disabled>select Status</option>
+                   <option
+                     *ngFor="let status of statusList"
+                     value="{{ status.Name }}"
+                   >
+                     {{ status.Name }}
+                   </option>
+                 </select>
+               </div>
+               <div class="form-group">
+                 <input
+                   class="form-control Array-label"
+                   type="date"
+                   formControlName="DueDate"
+                   name="Date"
+                 />
+               </div>
+               <div class="form-group">
+                 <input
+                   id="Time"
+                   type="text"
+                   class="form-control Array-label"
+                   formControlName="Time"
+                   placeholder="Time"
+                 />
+               </div>
+               <div class="form-group">
+                 <input
+                   id="Comment"
+                   type="text"
+                   class="form-control Array-label"
+                   formControlName="Comment"
+                   placeholder="Comment"
+                 />
+               </div>
+               <!-- <button class="btn btn-success" (click)="AddMclaneItem()">
+                 Add +Mclane
+               </button> -->
+               <div class="col-md-8">
+                <div class="row">
+                  <div class="col-md-3">
+                    <button class="btn btn-success" (click)="AddMclaneItem()" [disabled]="!MclaneForm.valid">
+                      Add +Mclane
+                    </button>
+                  </div>
+                  <div class="col-md-3">
+                    <button type="button" class="btn btn-danger btn-sm"  *ngIf="i > 0" (click)="deleteRows(i)"  >
+                      Remove
+                    </button>
+                </div>
+                </div>
+              </div>
+             </div>
+           </div>
+         </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-danger"
+          id="closeModal"
+          (click)="onSave()"
+        >
+          Save
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- model 2 End -->  
+</div>
+</div>
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <button
+          class="btn-cmn btn-green mt-1"
+          type="submit"
+          (click)="onSubmit()"
+        >
+          Save
+        </button>
+      </div>
+    </div>
+  </form>
+   <br>
+  <!-- model endteamMembers?.length -->
+  <div class="table-responsive" *ngIf="isBonbloc&&getBonblocList?.length>0">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Employee Name</th>
+          <th>EmployeeId</th>
+          <th>Project Name</th>
+          <th>Project Date</th>
+          <th>Project Hrs</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let item of getBonblocList;">
+          <td>{{ item.name }}</td>
+          <td>{{ item.empId }}</td>
+          <td>{{ item.prjct_nm }}</td>
+          <td>{{ item.prjct_date}}</td>
+          <td>{{ item.prjct_hrs}}</td>
+         
+        </tr>
+      </tbody>
+    </table>
+  </div><br><br>
+
+  <div class="table-responsive" *ngIf="isMclane&&MclaneList?.length>0">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Employee Name</th>
+          <th>EmployeeId</th>
+          <th>Due Date</th>
+          <th>Skills</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let item of MclaneList;">
+          <td>{{ item.name }}</td>
+          <td>{{ item.empId }}</td>
+          <td>{{ item.mclan_prjct_duedate}}</td>
+          <td>{{ item.mclan_prjct_skill}}</td>
+          <td>{{ item.mclan_prjct_status}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

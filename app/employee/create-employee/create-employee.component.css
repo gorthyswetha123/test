@@ -1,0 +1,136 @@
+body {
+    margin: 0;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    background-color: #fff;
+}
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+	.btn {
+		text-align: center;
+	}
+	.btn:hover {
+		text-decoration: none;
+	}
+	.btn-primary:hover {
+		color: #fff;
+		background-color: #6bd241;
+		border-color: #6bd241;
+	}
+	.btn-primary {
+		color: #212529;
+		background-color: #6bd241;
+		border-color: #6bd241;
+	}	
+	
+	.btn-close-popup {
+		width: 40px;
+		height: 40px;
+		background: #6bd241;
+		border: none;
+		outline: 0;
+		border-radius: 50%;
+		transition: ease .2s;
+		padding: 0;
+		cursor: pointer;
+	}
+	.fa {
+		display: inline-block;
+		font: normal normal normal 14px/1 FontAwesome;
+		font-size: inherit;
+		text-rendering: auto;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		padding: 12px;
+	}
+	.modal-body {
+		position: relative;
+		flex: 1 1 auto;
+		padding: 1rem;
+	}
+	.form-control {
+		display: block;
+		width: 100%;
+		height: calc(1.5em + .75rem + 2px);
+		padding: .375rem .75rem;
+		font-weight: 400;
+		line-height: 1.5;
+		background-color: #fff;
+		background-clip: padding-box;
+		border: 1px solid #ced4da;
+		border-radius: .25rem;
+		transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+	}
+	.home-reg-form .form-group .form-control {
+		height: 40px;
+		font-size: 16px;
+		border: 1px solid #ddd;
+		border-radius: 3px;
+	}
+	.btn-green {
+		display: block;
+		margin: auto;
+	}
+	.btn-cmn.btn-green {
+		background: #6bd241;
+	}
+	.row {
+		display: flex;
+		flex-wrap: wrap;
+		margin-right: -15px;
+		margin-left: -15px;
+	}
+	.btn-cmn.btn-green:hover {
+		background: #46c513;
+	}
+	.btn-cmn {
+		width: auto;
+		min-width: 150px;
+		height: 50px;
+		display: block;
+		font-family: hindmedium;
+		font-size: 16px;
+		color: #fff;
+		background: #4a494a;
+		text-transform: uppercase;
+		text-align: center;
+		border: none;
+		outline: 0;
+		padding: 0 15px;
+		border-radius: 3px;
+		letter-spacing: 2px;
+		transition: ease .2s;
+		cursor: pointer;
+	}
+	.category-category{
+		display: flex;
+		justify-content: space-between;
+	}
+	.btn-glyphicon { background:#ffffff; }
+
+	.btn-info {padding: 2px;
+		font-size: 12px;
+		border-radius:10px;
+	}
+
+	@media screen and (max-width: 1400px), screen and (max-height: 1080px){
+		.home-reg-form .form-group .form-control {
+			height: 36px;
+			font-size: 14px;
+		}
+		.btn-cmn {
+			min-width: 50px;
+			height: 36px;
+			font-size: 14px;
+		}
+
+	}
